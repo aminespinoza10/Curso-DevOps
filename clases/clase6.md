@@ -1,7 +1,5 @@
 # Material para la clase 6
 
-Elemento de prueba, eliminalo
-
 Ejecuta los siguientes comandos:
 
 ```bash
