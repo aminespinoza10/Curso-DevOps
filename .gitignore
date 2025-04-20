@@ -1,2 +1,6 @@
 #Archivos de configuración de .NET
 appsettings.json
+
+# Carpetas de compilación
+bin/
+obj/
