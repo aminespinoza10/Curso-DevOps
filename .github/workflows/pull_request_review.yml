@@ -22,16 +22,11 @@ jobs:
           
       - name: Looking for file location
         run: ls -a
-
-      - name: Pointing to right folder
-        run: cd src
-
-      - name: Looking for file location
-        run: ls -a
         
       # Step 3: Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
+        working-directory: src
 
       # Step 4: Build the project
       - name: Build the project
