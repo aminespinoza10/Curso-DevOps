@@ -21,13 +21,13 @@ jobs:
           dotnet-version: '8.0' # Use the version of .NET your project requires
           
       - name: Looking for file location
-        run: ls-a
+        run: ls -a
 
       - name: Pointing to right folder
         run: cd src
 
       - name: Looking for file location
-        run: ls-a
+        run: ls -a
         
       # Step 3: Restore dependencies
       - name: Restore dependencies
