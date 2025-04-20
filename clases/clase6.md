@@ -14,7 +14,7 @@ dotnet sln ApiContactos.sln add ApiContactos ApiContactos.Tests
 dotnet add ApiContactos.Tests package Microsoft.AspNetCore.Mvc.Testing --version 8.0.15
 ```
 
-Agrega este código a tu proyecto de pruebas:
+Agrega este código a tu proyecto de pruebas (dentro del archivo .cs):
 
 ```csharp
 using System.Net;
