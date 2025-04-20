@@ -19,11 +19,19 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0' # Use the version of .NET your project requires
+          
+      - name: Looking for file location
+        run: ls-a
 
+      - name: Pointing to right folder
+        run: cd src
+
+      - name: Looking for file location
+        run: ls-a
+        
       # Step 3: Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: /src
 
       # Step 4: Build the project
       - name: Build the project
