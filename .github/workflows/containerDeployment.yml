@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+        
+      - name: Looking for files
+        run: ls -a
+        
       - name: Build Docker NET image
         run: | 
           docker build --platform linux --tag $IMAGE_BASE_NAME -f .
