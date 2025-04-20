@@ -23,7 +23,7 @@ jobs:
       # Step 3: Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: ./src/
+        working-directory: ./src
 
       # Step 4: Build the project
       - name: Build the project
