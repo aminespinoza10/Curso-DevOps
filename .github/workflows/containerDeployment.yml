@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_BASE_NAME: aminespinoza/apicontactos:latest
+  IMAGE_BASE_NAME: aminespinoza/apicontactos
 
 jobs:
   API_Image:
@@ -22,4 +22,4 @@ jobs:
         
       - name: Build Docker NET image
         run: | 
-          docker build --platform linux --tag $IMAGE_BASE_NAME -f .
+          docker build -t aminespinoza/apicontactos .
