@@ -32,3 +32,4 @@
 /mnt/c/Users/amine/Documents/Platzi/devops/Curso-DevOps/src/ApiContactos/obj/Debug/net8.0/ApiContactos.pdb
 /mnt/c/Users/amine/Documents/Platzi/devops/Curso-DevOps/src/ApiContactos/obj/Debug/net8.0/ApiContactos.genruntimeconfig.cache
 /mnt/c/Users/amine/Documents/Platzi/devops/Curso-DevOps/src/ApiContactos/obj/Debug/net8.0/ref/ApiContactos.dll
+/mnt/c/Users/amine/Documents/Platzi/devops/Curso-DevOps/src/ApiContactos/bin/Debug/net8.0/MiniValidation.dll

@@ -45,6 +45,19 @@
           }
         }
       },
+      "MiniValidation/0.9.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MiniValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MiniValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -372,6 +385,22 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "MiniValidation/0.9.2": {
+      "sha512": "Xe5TqF3GBnPwPZKwC3clf1ntoc2tltJEDBAV+JJyn/WgdHHiO5GH67SukEqg63bUlMz36bwxxBkM/MSdD1EVLw==",
+      "type": "package",
+      "path": "minivalidation/0.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/MiniValidation.dll",
+        "lib/net6.0/MiniValidation.xml",
+        "lib/netstandard2.0/MiniValidation.dll",
+        "lib/netstandard2.0/MiniValidation.xml",
+        "minivalidation.0.9.2.nupkg.sha512",
+        "minivalidation.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -478,6 +507,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.12",
+      "MiniValidation >= 0.9.2",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -526,6 +556,10 @@
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[8.0.12, )"
+          },
+          "MiniValidation": {
+            "target": "Package",
+            "version": "[0.9.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
