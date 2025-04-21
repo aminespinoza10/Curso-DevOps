@@ -32,11 +32,14 @@ jobs:
     - name: Terraform validate
       id: validate
       run: terraform validate -no-color
+      if: steps.init.outcome == 'success'
 
     - name: Terraform plan #Here is the state lock
       id: plan
       run: terraform plan -out plan.out
+      if: steps.validate.outcome == 'success'
 
     - name: Terraform apply
       id: apply
       run: terraform apply "plan.out"
+      if: steps.plan.outcome == 'success'
