@@ -1,8 +1,8 @@
-name: API Contactos CD/CD
+name: API Contactos CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "api" ]
 
 env:
   IMAGE_BASE_NAME: aminespinoza/apicontactos
