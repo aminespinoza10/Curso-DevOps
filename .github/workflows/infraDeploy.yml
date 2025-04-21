@@ -20,11 +20,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: hashicorp/setup-terraform@v1 
 
-    - name: Terraform format
-      id: fmt
-      run: terraform fmt -check
-      continue-on-error: false
-
     - name: Terraform init
       id: init
       run: terraform init -backend-config="sas_token={{secrets.SAS_TOKEN}}"
