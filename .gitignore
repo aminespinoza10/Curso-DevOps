@@ -4,3 +4,8 @@ appsettings.json
 # Carpetas de compilación
 bin/
 obj/
+
+#Configuración de Terraform
+*.tfstate
+.terraform/
+.terraform/*
