@@ -29,7 +29,7 @@ jobs:
       - name: ACR Login
         uses: azure/docker-login@v1
         with:
-          login-server: contoso.azurecr.io
+          login-server: acrdevopsamin.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }} 
 
