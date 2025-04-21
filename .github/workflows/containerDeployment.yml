@@ -22,4 +22,4 @@ jobs:
         
       - name: Build Docker NET image
         run: | 
-          docker build -t aminespinoza/apicontactos .
+          docker build --platform linux -t $IMAGE_BASE_NAME .
