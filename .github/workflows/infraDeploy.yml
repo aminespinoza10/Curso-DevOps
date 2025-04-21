@@ -33,7 +33,7 @@ jobs:
       id: validate
       run: terraform validate -no-color
 
-    - name: Terraform plan
+    - name: Terraform plan #Here is the state lock
       id: plan
       run: terraform plan -out plan.out
 
