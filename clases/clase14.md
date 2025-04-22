@@ -23,7 +23,9 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_BASE_NAME: acrdevopsamin.azurecr.io/apicontactos:latest
+  IMAGE_BASE_NAME: aminespinoza/apicontactos:latest
+  RESOURCE_GROUP: rg--warm-wren
+  ENVIRONMENT_NAME: devops-env
 
 jobs:
   API_Image:
@@ -35,22 +37,30 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
         
-      - name: Build Docker NET image
-        run: | 
-          docker build --platform linux -t $IMAGE_BASE_NAME .
       - name: Azure Login
         uses: Azure/login@v1.4.6
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: ACR Login
-        uses: azure/docker-login@v1
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+        
+      - name: Install az containerapp extension
+        run: |
+          az config set extension.use_dynamic_install=yes_without_prompt
+          
+      - name: Build Docker NET image
+        run: | 
+          docker build --platform linux -t $IMAGE_BASE_NAME .
+          
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
-          login-server: acrdevopsamin.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }} 
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Publish Docker NET image
+      - name: Deploy image to hub
         run: |
           docker push $IMAGE_BASE_NAME
+          
+      - name: Deploy Container App
+        run: |
+          az containerapp up --name contactosapi --image $IMAGE_BASE_NAME --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --ingress external --target-port 8080
 ```

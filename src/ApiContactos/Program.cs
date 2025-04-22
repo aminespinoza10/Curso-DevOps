@@ -4,7 +4,7 @@ using OpenTelemetry.Metrics;
 using Azure.Monitor.OpenTelemetry.Exporter;
 
 var builder = WebApplication.CreateBuilder(args);
-/*
+
 builder.Services.AddOpenTelemetry()
     .WithMetrics(metricsBuilder =>
     {
@@ -24,7 +24,7 @@ builder.Services.AddOpenTelemetry()
                 o.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
             });
     });
-*/
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
