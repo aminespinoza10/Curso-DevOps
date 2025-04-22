@@ -53,6 +53,14 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
+app.MapGet("/obtenercontactos", () =>
+{
+    var contactos = new List<string> { "Amin Espinoza", "Oscar Barajas", "Pepe Rodelo" };
+    return contactos;
+})
+.WithName("ObtenerContactos")
+.WithOpenApi();
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
