@@ -78,6 +78,14 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled       = true
 }
 
+resource "azurerm_application_insights" "app_insights" {
+  name = "${var.resource_group_name_prefix}-ai"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  application_type    = "web"
+  workspace_id       = azurerm_log_analytics_workspace.log_analytics.id
+}
+
 resource "azurerm_log_analytics_workspace" "log_analytics" {
   name                = "${var.resource_group_name_prefix}-law"
   location            = azurerm_resource_group.rg.location

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\amine\\Documents\\Platzi\\devops\\Curso-DevOps\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E8B7613-FDC5-4E5E-8FBD-F292700B9F23}|ApiContactos\\ApiContactos.csproj|c:\\users\\amine\\documents\\platzi\\devops\\curso-devops\\src\\apicontactos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E8B7613-FDC5-4E5E-8FBD-F292700B9F23}|ApiContactos\\ApiContactos.csproj|solutionrelative:apicontactos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\amine\\Documents\\Platzi\\devops\\Curso-DevOps\\src\\ApiContactos\\Program.cs",
+              "RelativeDocumentMoniker": "ApiContactos\\Program.cs",
+              "ToolTip": "C:\\Users\\amine\\Documents\\Platzi\\devops\\Curso-DevOps\\src\\ApiContactos\\Program.cs",
+              "RelativeToolTip": "ApiContactos\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T00:32:09.12Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
