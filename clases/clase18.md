@@ -58,3 +58,9 @@ public class ContactosTest : IClassFixture<WebApplicationFactory<Program>>
 }
 ```
 
+Modifica el acceso a tus variables de ambiente.
+
+```csharp
+o.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"] 
+                     ?? Environment.GetEnvironmentVariable("AZURE_MONITOR_CONNECTION_STRING");
+```

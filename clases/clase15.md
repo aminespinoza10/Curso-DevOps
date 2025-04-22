@@ -36,7 +36,12 @@ builder.Services.AddOpenTelemetry()
         metricsBuilder
             .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("ApiContactos"))
             .AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation();
+            .AddHttpClientInstrumentation()
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"] 
+                     ?? Environment.GetEnvironmentVariable("AZURE_MONITOR_CONNECTION_STRING");
+            });
     })
     .WithTracing(tracingBuilder =>
     {
