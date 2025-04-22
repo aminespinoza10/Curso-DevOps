@@ -44,4 +44,4 @@ jobs:
           
       - name: Deploy Container App
         run: |
-          az containerapp up --name contactosapiobservable2 --image $IMAGE_BASE_NAME --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --ingress external --target-port 8080
+          az containerapp up --name contactosapi --image $IMAGE_BASE_NAME --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --ingress external --target-port 8080
