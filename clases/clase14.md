@@ -1,0 +1,56 @@
+# Material de la clase 14
+
+Aquí tienes el material para la clase 14
+
+El formato de JSON que necesitas para tus credenciales es el siguiente:
+
+```json
+{
+    "clientSecret":  "<password>",
+    "subscriptionId":  "<subscriptionId>",
+    "tenantId":  "<tenant>",
+    "clientId":  "<appId>"
+}
+```
+
+Luego sigue el código para actualizar la Github Action
+
+```yml
+name: API Contactos CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  IMAGE_BASE_NAME: acrdevopsamin.azurecr.io/apicontactos:latest
+
+jobs:
+  API_Image:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/ApiContactos
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        
+      - name: Build Docker NET image
+        run: | 
+          docker build --platform linux -t $IMAGE_BASE_NAME .
+      - name: Azure Login
+        uses: Azure/login@v1.4.6
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: ACR Login
+        uses: azure/docker-login@v1
+        with:
+          login-server: acrdevopsamin.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }} 
+
+      - name: Publish Docker NET image
+        run: |
+          docker push $IMAGE_BASE_NAME
+```

@@ -31,26 +31,24 @@ jobs:
     - uses: actions/checkout@v2
     - uses: hashicorp/setup-terraform@v1 
 
-    - name: Terraform format
-      id: fmt
-      run: terraform fmt -check
-      continue-on-error: true
-
     - name: Terraform init
       id: init
-      run: terraform init -backend-config="sas_token={{secrets.SAS_TOKEN}}
+      run: terraform init -backend-config="${{secrets.BACKEND_CONFIG}}"
 
     - name: Terraform validate
       id: validate
       run: terraform validate -no-color
+      if: steps.init.outcome == 'success'
 
-    - name: Terraform plan
+    - name: Terraform plan #Here is the state lock
       id: plan
       run: terraform plan -out plan.out
+      if: steps.validate.outcome == 'success'
 
     - name: Terraform apply
       id: apply
       run: terraform apply "plan.out"
+      if: steps.plan.outcome == 'success'
 ```
 
 Commit y espera a ver que todo esté ejecutado

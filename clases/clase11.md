@@ -3,7 +3,7 @@
 Para esta clase necesitas modifcar tu Action ya existente:
 
 ```yaml
-name: API Contactos CD/CD
+name: API Contactos CI/CD
 
 on:
   push:
