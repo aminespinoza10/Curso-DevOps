@@ -38,3 +38,7 @@ jobs:
       - name: Deploy image to hub
         run: |
           docker push $IMAGE_BASE_NAME:latest
+          
+      - name: Deploy Container App
+        run: |
+          az containerapp up --name contactosapi --image $IMAGE_BASE_NAME:latest --resource-group rg--warm-wren --environment devops-env --ingress external
