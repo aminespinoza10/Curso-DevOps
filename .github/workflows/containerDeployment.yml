@@ -17,6 +17,15 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
         
+      - name: Azure Login
+        uses: Azure/login@v1.4.6
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+        
+      - name: Install az containerapp extension
+        run: |
+          az config set extension.use_dynamic_install=yes_without_prompt
+          
       - name: Build Docker NET image
         run: | 
           docker build --platform linux -t $IMAGE_BASE_NAME .
