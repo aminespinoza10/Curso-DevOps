@@ -1,4 +1,29 @@
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Metrics;
+using Azure.Monitor.OpenTelemetry.Exporter;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry()
+    .WithMetrics(metricsBuilder =>
+    {
+        metricsBuilder
+            .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("ApiContactos"))
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation();
+    })
+    .WithTracing(tracingBuilder =>
+    {
+        tracingBuilder
+            .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("ApiContactos"))
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddAzureMonitorTraceExporter(o =>
+            {
+                o.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
+            });
+    });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
