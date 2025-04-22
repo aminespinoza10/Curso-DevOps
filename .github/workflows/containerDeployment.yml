@@ -6,6 +6,8 @@ on:
 
 env:
   IMAGE_BASE_NAME: acrdevopsamin.azurecr.io/apicontactos:latest
+  SERVICE_NAME: contactosapi
+  RESOURCE_GROUP: rg--warm-wren
 
 jobs:
   API_Image:
@@ -37,6 +39,10 @@ jobs:
         run: |
           docker push $IMAGE_BASE_NAME
 
-  #    - name: Deploy image to hub
-  #      run: |
-  #        docker push $IMAGE_BASE_NAME:latest
+      - name: Install az containerapp extension
+        run: |
+          az config set extension.use_dynamic_install=yes_without_prompt
+
+      - name: Deploy NET container App
+        run: |
+          az containerapp up --name "$SERVICE_NAME" --resource-group $RESOURCE_GROUP --environment devops-env --image $IMAGE_BASE_NAME
