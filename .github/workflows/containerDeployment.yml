@@ -37,7 +37,7 @@ jobs:
 
       - name: Deploy image to hub
         run: |
-          docker push $IMAGE_BASE_NAME:latest
+          docker push $IMAGE_BASE_NAME
           
       - name: Deploy Container App
         run: |
