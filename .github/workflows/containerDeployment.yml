@@ -5,7 +5,9 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_BASE_NAME: aminespinoza/observable:latest
+  IMAGE_BASE_NAME: aminespinoza/apicontactos:latest
+  RESOURCE_GROUP: rg--warm-wren
+  ENVIRONMENT_NAME: devops-env
 
 jobs:
   API_Image:
@@ -29,6 +31,7 @@ jobs:
       - name: Build Docker NET image
         run: | 
           docker build --platform linux -t $IMAGE_BASE_NAME .
+          
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -41,4 +44,4 @@ jobs:
           
       - name: Deploy Container App
         run: |
-          az containerapp up --name contactosapiobservable --image aminespinoza/observable:latest --resource-group rg--warm-wren --environment devops-env --ingress external --target-port 8080
+          az containerapp up --name contactosapiobservable2 --image $IMAGE_BASE_NAME --resource-group $RESOURCE_GROUP --environment $ENVIRONMENT_NAME --ingress external --target-port 8080
