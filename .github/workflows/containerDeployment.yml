@@ -41,4 +41,4 @@ jobs:
           
       - name: Deploy Container App
         run: |
-          az containerapp up --name contactosapiobservable --image $IMAGE_BASE_NAME --resource-group rg--warm-wren --environment devops-env --ingress external --target-port 8080
+          az containerapp up --name contactosapiobservable --image aminespinoza/observable:latest --resource-group rg--warm-wren --environment devops-env --ingress external --target-port 8080
