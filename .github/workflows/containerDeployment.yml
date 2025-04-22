@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_BASE_NAME: aminespinoza/apicontactos
+  IMAGE_BASE_NAME: aminespinoza/observable:latest
 
 jobs:
   API_Image:
@@ -41,4 +41,4 @@ jobs:
           
       - name: Deploy Container App
         run: |
-          az containerapp up --name contactosapi --image $IMAGE_BASE_NAME:latest --resource-group rg--warm-wren --environment devops-env --ingress external --target-port 8080
+          az containerapp up --name contactosapiobservable --image $IMAGE_BASE_NAME --resource-group rg--warm-wren --environment devops-env --ingress external --target-port 8080
